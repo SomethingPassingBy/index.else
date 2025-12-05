@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MyPage_Stuffs</title>
+	
+<style type="text/css">
+body {
+	background-color: #000000;
+	background-image: url(images/%E6%88%BF%E9%97%B4.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-size: 1920px 1080px;
+    background-position: center;
+	margin-left: 100px;
+	margin-top: 100px;
+	margin-right: 100px;
+	margin-bottom: 100px;
+}
+a:link {
+	color: #C4E0F9;
+}
+a:hover {
+	color: #FF0004;
+}
+body,td,th {
+	color: #FFFFFF;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+a:visited {
+	color: #BC6EFF;
+}
+th {
+  background: rgba(245, 245, 245, 0.3);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+table {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+</style>
+	
+</head>
+
+<body>
+<h2><img src="images/背对的人物.png" alt="" width="75" height="75" usemap="#Map">
+  <map name="Map">
+    <area shape="circle" coords="37,41,36" href="index.html" target="_self" alt="主页">
+  </map>
+
+  I BELIEVE YOU'RE HERE FOR SOMETHING LESS FORMAL —— HOME</h2>
+<hr>
+<h6><a href="index.html">Home</a></h6>
+	<h1><p style="text-align: center;">欢迎来到我的个人主页！</p></h1>
+	<h3><p style="text-indent: 2em;">本网页用于呈现那些没有明确的归属的，或者仅仅只是用于留存或传递的网页。&gt;&gt;见表格</p></h3>
+	<h3><p style="text-indent: 2em;">单击网页名称可以访问相应页面。检索请在输入框内输入查找内容。</p></h3>
+<p>&nbsp;</p>
+<div style="margin: 10px 0;" >
+  <img src="images/search.png" alt="" width="26" height="24" >
+  <input type="text" id="searchInput" placeholder="输入关键词检索表格..." style="padding: 6px; width: 960px;background-color: rgba(245, 245, 245, 0.8);" >
+</div>
+<table id="indexTable" width="1032" height="143" border="1">
+  <thead>
+	<tr>
+      <th width="534" scope="col"><h3>WEBPAGE 网页</h3></th>
+      <th width="255" scope="col">TIME 创建时间</th>
+	  <th width="200" scope="col">NOTES 备注</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <tr>
+	  <td><a href="web/Help/Help.html">· Help 帮助</a></td>
+	  <td>2025.11</td>
+	  <td>单击头像均可返回此页面</td>
+	</tr>
+	<tr>
+      <td><a href="web/Hometown/Hometown.html">· Hometowns 家乡们</a></td>
+      <td>2025.11</td>
+	  <td>新生实践课作业</td>
+    </tr>
+    <tr>
+      <td>***</td>
+      <td>***</td>
+	  <td>***</td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;</p>
+<h3>&nbsp;</h3>
+</body>
+</html>
+
+<script>
+ const searchInput = document.getElementById('searchInput');
+ const table = document.getElementById('indexTable');
+ const tbody = table.querySelector('tbody');
+ const rows = tbody.querySelectorAll('tr');
+ 
+ function searchFirstColumn() {
+   const keyword = searchInput.value.trim().toLowerCase();
+     rows.forEach(row => {
+       const firstCell = row.querySelector('td:first-child');
+	   const originalText = firstCell.textContent;
+       const cellText = originalText.toLowerCase();
+       let isMatch = false;
+       if (keyword && cellText.includes(keyword)) isMatch = true;
+       row.style.display = isMatch || !keyword ? '' : 'none';
+     });
+  }
+  searchInput.addEventListener('input', searchFirstColumn);
+</script>
